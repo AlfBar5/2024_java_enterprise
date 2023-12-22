@@ -36,6 +36,10 @@ public class EliminarProducto extends HttpServlet {
 		//de la variable productos, ya queda modificada para la sesión. Aunque no pasa nada por ponerla
 		session.setAttribute("carrito", productos);	
 		
+		
+		//mandamos nombre del producto eliminado a carrito.jsp con un atributo de petición
+		request.setAttribute("nombrep", nombre);
+		
 		//transferimos petición con ArrayList resultados a verlibros.jsp
 		request.getRequestDispatcher("carrito.jsp").forward(request, response);
 		
