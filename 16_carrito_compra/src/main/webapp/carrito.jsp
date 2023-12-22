@@ -18,7 +18,7 @@
 <div class="row">
     <div class="col-md-4 order-md-2 mb-4"></div>
 	
-	<div class="col-md-4 order-md-2 mb-4" align="center">Carrito: 
+	<div class="col-md-4 order-md-2 mb-4" align="center">Carrito: <br>
 	<%--recogemos atributo de petición, si no viene nulo lo mostramos  --%>
 	<%if(request.getAttribute("nombrep")!=null){ %>
 		<%=request.getAttribute("nombrep") %> eliminado
