@@ -32,13 +32,14 @@ public class Login extends HttpServlet {
 		if(service.autenticar(request.getParameter("usuario"),request.getParameter("password"))){
 				//transferimos petición a correcto .jsp
 			
-			//if (checkrecordar!="") {
+			//if (checkrecordar!=null) {
 				//todo el código está en el método private generarCookie
 				generarCookie(response,request.getParameter("usuario"));
 				
+			//}		
 				
-				dispatcher=request.getRequestDispatcher("correcto.jsp");
-			//}	
+			dispatcher=request.getRequestDispatcher("correcto.jsp");
+			
 									
 		}else {
 				//transferimos petición a error.jsp
