@@ -63,8 +63,9 @@ public class ContadorServlet extends HttpServlet {
 				
 				
 				//transferir petición a JSP
-				request.getRequestDispatcher("resultado.jsp").forward(request, response);
-				
+				//request.getRequestDispatcher("resultado.jsp").forward(request, response);
+				//con EL
+				request.getRequestDispatcher("resultado_el.jsp").forward(request, response);
 			
 				
 		

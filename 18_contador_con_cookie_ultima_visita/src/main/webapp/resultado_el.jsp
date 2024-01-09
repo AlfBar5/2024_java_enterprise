@@ -22,13 +22,14 @@
 	
 	<div class="col-md-4 order-md-2 mb-4">
 	
-	<h3>Has entrado individualmente: <%=session.getAttribute("contador") %></h3>
-	<br>
-	<h3>Has entrado individualmente: ${sessionScope.contador} veces</h3>
+<h3>Has entrado individualmente: <%=session.getAttribute("contador") %></h3>
 <br><br>
 <h3>Se ha entrado globalmente: <%=application.getAttribute("contglobal") %></h3>
-<br>
-<h3>Se ha entrado globalmente: ${applicationScope.contglobal}</h3>
+
+<br><br>
+<%--Recogemos la cookie del request, la que tenga el cliente en su disco duro --%>
+
+<h3>Fecha de tu anterior visita: ${!empty cookie.fecha?cookie.fecha.value:"primera visita"}</h3>
 
 <br><br>
 
