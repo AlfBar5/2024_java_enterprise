@@ -31,7 +31,7 @@ public class BuscarController extends HttpServlet {
 		request.setAttribute("cursos", cursos);
 					
 		//transferimos petición con ArrayList resultados a verlibros.jsp
-		request.getRequestDispatcher("cursos.jsp").forward(request, response);
+		//request.getRequestDispatcher("cursos.jsp").forward(request, response);
 		
 	}
 

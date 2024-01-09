@@ -40,7 +40,7 @@ public class EliminarController extends HttpServlet {
 						
 		//transferimos petición con ArrayList resultados a verlibros.jsp
 		//request.getRequestDispatcher("index.jsp").forward(request, response);
-		request.getRequestDispatcher("menu.html").forward(request, response);
+		//request.getRequestDispatcher("menu.html").forward(request, response);
 		
 	}
 
