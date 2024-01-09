@@ -18,6 +18,7 @@ public class FrontController extends HttpServlet {
 				String op=request.getParameter("operation");
 				
 				//variable para dirección de la vista
+				//Se puede poner una página genérica de error
 				String urlView="";
 				
 				switch(op) {
