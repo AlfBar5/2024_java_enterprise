@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="jakarta.tags.core" prefix="c" %>
     
 <!DOCTYPE html>
 <html>
 <head>
-<!-- las siguientes etiquetas meta sirven para que el navegadorno cachee la página-->
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="Last-Modified" content="0">
 <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
@@ -27,13 +25,13 @@
 	
 	<div class="col-md-6 order-md-2 mb-4">
 	
-	<h5>El usuario <%--=request.getParameter("usuario")--%> con esa contraseña <%--=request.getParameter("password")--%>, no existe</h5>
+	<h5>El usuario <%=request.getParameter("usuario")%> con contraseña <%=request.getParameter("password")%>, no existe</h5>
 
 
 
 <br><br>
 
-<div align="center"><a href="FrontController?operation=toMenu">VOLVER</a></div>
+<div align="center"><a href='FrontController?operation=toLogin'>VOLVER</a></div>
 
 
 		

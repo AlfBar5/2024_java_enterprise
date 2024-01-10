@@ -17,6 +17,8 @@ public class FrontController extends HttpServlet {
 		//Recogemos parámetro
 				String op=request.getParameter("operation");
 				
+				//Boolean resultlogin =(Boolean) request.getAttribute("autenticado");
+								
 				//variable para dirección de la vista
 				//Se puede poner una página genérica de error
 				String urlView="";
@@ -36,6 +38,15 @@ public class FrontController extends HttpServlet {
 						request.getRequestDispatcher("EliminarController").include(request, response);
 						urlView="menu.html";
 						break;
+					case "doLogin":
+						request.getRequestDispatcher("LoginController").include(request, response);
+						//control de si el usuario está autentificado
+						if((Boolean) request.getAttribute("autenticado")) {
+							urlView="menu.html";
+						}else {
+							urlView="error.jsp";
+						}
+						break;
 					case "toNuevo":
 						urlView="nuevo.html";
 						break;
@@ -47,6 +58,9 @@ public class FrontController extends HttpServlet {
 						break;
 					case "toMenu":
 						urlView="menu.html";
+						break;
+					case "toLogin":
+						urlView="login.html";
 						break;
 				}
 				//forward transfiere a otro controller y no vuelve
