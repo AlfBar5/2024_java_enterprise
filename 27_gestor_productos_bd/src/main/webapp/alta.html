@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+
+<title>Nuevo</title>
+
+<!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<br><br>
+	
+<div class="row">
+    <div class="col-md-3 order-md-2 mb-4"> </div>
+	
+	<div class="col-md-6 order-md-2 mb-4">
+	
+	<form action="FrontController?operation=doAlta" method="POST">
+	
+		<div class="row">
+			<div class="col-md-6 order-md-2 mb-6"><label>NOMBRE:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" name="nombre" class="form-control"> </div>
+			<br><br>
+			</div>
+			
+			<div class="row">
+			<div class="col-md-6 order-md-2 mb-6"><label>PRECIO:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" name="precio" class="form-control"> </div>
+			<br><br>
+			</div>
+			
+			<div class="row">
+			<div class="col-md-6 order-md-2 mb-6"><label>CATEGORÍA:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" name="categoria" class="form-control"> </div>
+			<br><br>
+			</div>
+			
+			<div class="row">
+			<div class="col-md-6 order-md-2 mb-6"><label></label> </div><div class="col-md-6 order-md-2 mb-6"><button class="btn btn-primary btn-lg btn-block" type="submit"> GUARDAR</button></div>
+			<br><br>
+			</div>
+		
+		</div>
+	</form>
+	
+	<div class="col-md-3 order-md-2 mb-4"></div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-4 order-md-2 mb-4"></div>
+	
+	<div class="col-md-4 order-md-2 mb-4" align="center"><a href="FrontController?operation=toInicio"><h5>VOLVER</h5> </a></div>
+
+	<div class="col-md-4 order-md-2 mb-4"></div>
+
+</div>
+
+</body>
+</html>

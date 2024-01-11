@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1">
+<title>Eliminar</title>
+
+<!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<br><br>
+	
+<div class="row">
+    <div class="col-md-3 order-md-2 mb-4"> </div>
+	
+	<div class="col-md-6 order-md-2 mb-4">
+	
+	<form action="FrontController?operation=doEliminar" method="POST">
+	
+		
+			
+			
+			<div class="row">
+			<div class="col-md-6 order-md-2 mb-6"><label>NOMBRE:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" name="nombre" class="form-control"> </div>
+			<br><br>
+			</div>
+			<br><br>
+			<div class="row">
+			<div class="col-md-6 order-md-2 mb-6"><label></label> </div><div class="col-md-6 order-md-2 mb-6"><button class="btn btn-primary btn-lg btn-block" type="submit"> ELIMINAR</button></div>
+			<br><br>
+			</div>
+		
+		
+	</form>
+	</div>
+	
+	<div class="col-md-3 order-md-2 mb-4"></div>
+
+</div>
+</body>
+</html>
