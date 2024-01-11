@@ -6,7 +6,9 @@ import java.util.List;
 import model.Producto;
 
 public class ProductosService {
+	
 	private static List<Producto> productos=new ArrayList<>();
+	
 	public void agregarProducto(String nombre, double precio, String categoria) {
 		productos.add(new Producto(nombre,precio,categoria));
 	}
