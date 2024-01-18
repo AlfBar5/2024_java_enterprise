@@ -23,25 +23,25 @@
 	
 	<div class="col-md-6 order-md-2 mb-4">
 	
-	<form action="FrontController?operation=doGuardar" method="POST">
+	<form action="FrontController?operation=doGuardar" method="POST" onsubmit="return validar()">
 	
 		<div class="row">
-			<div class="col-md-6 order-md-2 mb-6"><label>NOMBRE:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" name="nombre" class="form-control"> </div>
+			<div class="col-md-6 order-md-2 mb-6"><label>NOMBRE:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" id="nombre" name="nombre" class="form-control">  </div>
 			<br><br>
 			</div>
 			
 			<div class="row">
-			<div class="col-md-6 order-md-2 mb-6"><label>DURACIÓN:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" name="duracion" class="form-control"> </div>
+			<div class="col-md-6 order-md-2 mb-6"><label>DURACIÓN:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" id="duracion" name="duracion" class="form-control"> </div>
 			<br><br>
 			</div>
 			
 			<div class="row">
-			<div class="col-md-6 order-md-2 mb-6"><label>PRECIO:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" name="precio" class="form-control"> </div>
+			<div class="col-md-6 order-md-2 mb-6"><label>PRECIO:</label> </div><div class="col-md-6 order-md-2 mb-6"><input type="text" id="precio" name="precio" class="form-control"> </div>
 			<br><br>
 			</div>
 			
 			<div class="row">
-			<div class="col-md-6 order-md-2 mb-6"><label></label> </div><div class="col-md-6 order-md-2 mb-6"><button class="btn btn-primary btn-lg btn-block" type="submit"> GUARDAR</button></div>
+			<div class="col-md-6 order-md-2 mb-6"><label></label> </div><div class="col-md-6 order-md-2 mb-6"><input class="btn btn-primary btn-lg btn-block" type="submit" value="GUARDAR"> </div>
 			<br><br>
 			</div>
 		
@@ -56,11 +56,54 @@
 <div class="row">
     <div class="col-md-4 order-md-2 mb-4"></div>
 	
+	<div class="col-md-4 order-md-2 mb-4" align="center"><h5 id="mensaje"> </h5></div>
+
+	<div class="col-md-4 order-md-2 mb-4"></div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-4 order-md-2 mb-4"></div>
+	
 	<div class="col-md-4 order-md-2 mb-4" align="center"><a href="menu.html"><h5>VOLVER</h5> </a></div>
 
 	<div class="col-md-4 order-md-2 mb-4"></div>
 
 </div>
+
+
+
+
+<!--validar campos númericos positivos y mayor de 0 -->
+<!--no se admiten cursos que contengan 'php'. Y duración tiene que ser número entero -->
+<script type="text/javascript">
+		function validar(){
+			var nombre=document.getElementById("nombre").value;
+			var duracion=document.getElementById("duracion").value;
+			var precio=document.getElementById("precio").value;
+			if(isNaN(duracion)||isNaN(precio)){
+				alert("Duración y precio deben ser numéricos");
+				return false;
+			}
+			if(duracion<=0||precio<=0){
+				alert("Los campos numéricos deben ser positivos");
+				return false;
+			}
+			if(nombre.includes("php")){
+				alert("No se admiten cursos de php");
+				return false;
+			}
+			if(duracion.includes(".")){
+				alert("La duración debe ser entera");
+				return false;
+			}
+			return true;
+		}
+	
+	
+	
+	</script>
 
 </body>
 </html>
