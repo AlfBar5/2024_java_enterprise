@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- las siguientes etiquetas meta sirven para que el navegadorno cachee la p�gina-->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache">
+
+<title>Login</title>
+
+<!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<br><br>
+	
+	<div class="row">
+        <div class="col-md-4 order-md-2 mb-4"> </div>
+	
+	<div class="col-md-4 order-md-2 mb-4">
+	<form action="Servlet" onsubmit="return validar()">
+	<label>Introduce usuario:</label> <input type="text" id="usu" name="usuario" class="form-control" >
+	<br>
+	<br>
+	<label>Introduce contraseña:</label> <input type="password" id="pass" name="password" class="form-control" >
+	<br>
+	<br>
+		<div class="form-check">
+		    <input type="checkbox" class="form-check-input" id="recordarid" name="recordar" value"1">
+		    <label class="form-check-label" for="exampleCheck1">Recordar contraseña</label>
+		  </div>
+	<br>
+	<br>
+	<input class="btn btn-primary btn-lg btn-block" type="submit" value="ENVIAR"> 
+	
+	</form>
+</div>
+
+<div class="col-md-4 order-md-2 mb-4"></div>
+
+
+<!--validar que la longuitud del usuario y password es más de tres caracteres -->
+<script type="text/javascript">
+	function validar(){
+		var usuario=document.getElementById("usu").value;
+		var password=document.getElementById("pass").value;
+		if(usuario.length>=3&&password.length>=3){
+			alert("Los datos son válidos para enviar");
+			return true;
+		}else{
+			alert("Los datos no cumplen las reglas para enviar");
+			return false;
+		}
+	}
+
+</script>
+
+
+
+</body>
+</html>

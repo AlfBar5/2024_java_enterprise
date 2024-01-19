@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="ISO-8859-1">
+<title>Buscar</title>
+
+<!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+</head>
+<body>
+
+<br><br>
+	
+<div class="row">
+    <div class="col-md-3 order-md-2 mb-4"> </div>
+	
+	<div class="col-md-6 order-md-2 mb-4">
+	
+	
+	
+		<div class="row">
+			
+			<div class="col-md-6 order-md-2 mb-6"><label>BUSCAR POR CATEGORÍA:</label> </div>
+			<div class="col-md-6 order-md-2 mb-6"><input id="categoria" type="text" name="categoria" class="form-control"> </div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 order-md-2 mb-6"><label></label> </div>
+			<div class="col-md-6 order-md-2 mb-6"><input type="button" id="btnMostrar" class="btn btn-primary btn-lg btn-block" value="BUSCAR"> </div>
+		</div>
+	
+		<div class="row">
+			<div class="col-md-12 order-md-2 mb-12"><div id="tbProductos"></div> </div>
+		</div>
+		
+		
+	
+	
+	</div>
+	
+	<div class="col-md-3 order-md-2 mb-4"></div>
+
+</div>
+
+
+<script type="text/javascript">
+
+$("#btnMostrar").click(lanzarPeticion);
+		function lanzarPeticion(){
+			//alert("hola");
+			//var url="FrontController?operation=doBuscar&categoria="+$("#categoria").val();
+			var url="FrontController";
+			$.get(url,{"operation":"doBuscar","categoria":$("#categoria").val()},function(data){
+				var tabla="<table border='1'><tr><th>Nombre</th><th>Precio</th></tr>";
+					//alert(data);
+				$.each(data,function(i,p){
+					tabla+="<tr><td>"+p.nombre+"</td><td>"+p.precio+"</td></tr>";
+				});
+				tabla+="</table>";
+				$("#tbProductos").html(tabla);
+			});
+		}
+
+/*
+	$("#btnMostrar").click(lanzarPeticion);
+
+	function lanzarPeticion(){
+		var url="FrontController?operation=doBuscar&categoria="+$("#categoria").val();
+		//a la función get le damos dos parámetros, la url y una función que es donde recibimos la respuesta, los datos de la bd 
+		$.get(url,function(data){
+
+			var tabla="<table class='table'><tr><th>ID PRODUCTO</th><th>NOMBRE</th><th>PRECIO</th><th>CATEGORIA</th></tr>";
+			//recorro data, que tiene ya el json. i es índice o posición, p es el valor
+			$.each(data,function(i,p){
+				tabla+="<tr><td>"+p.idProducto+"</td><td>"+p.nombre+"</td><td>"+p.precio+"</td><td>"+p.categoria+"</td></tr>";
+			});
+			//cerramos tabla
+			tabla+="</table>"
+			//vuelco la tabla en el div tbProductos
+			$("#tbProductos").html(tabla);
+
+		});
+	}
+
+*/
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+
+<title>Nuevo</title>
+
+<!-- Bootstrap core CSS -->
+<!-- Grid https://getbootstrap.com/docs/4.0/examples/grid/ -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<br><br>
+
+
+<!-- tabla columnas fijas -->
+<div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            
+            <div class="row">
+                <div class="col-6" align="right" style="padding: 5%;">NÚMERO 1 </div>
+                <div class="col-6"align="left" style="padding: 5%;">  <input id="numero1" type="text" value="" width="220px" height="40px"></div>
+            </div>
+        
+            <div class="row">
+                <div class="col-6" align="right" style="padding: 5%;">NÚMERO 2 </div>
+                <div class="col-6"align="left" style="padding: 5%;">  <input id="numero2" type="text" value="" width="220px" height="40px"></div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-6" align="center" style="padding: 5%;"><input type="button" onclick="sumarNumeros();" value=" SUMAR " width="140px" height="30px"> </div>
+                <div class="col-6"align="center" style="padding: 5%;">  <input type="button" onclick="restarNumeros();" value=" RESTAR " width="140px" height="30px"></div>
+                
+            </div>
+
+            <div class="row">
+                
+                <div class="col-6"align="center" style="padding: 5%;">  <input type="button" onclick="multiplicarNumeros();" value=" MULTIPLICAR " width="140px" height="30px"></div>
+                <div class="col-6"align="center" style="padding: 5%;">  <input type="button" onclick="dividirNumeros();" value=" DIVIDIR " width="140px" height="30px"></div>
+            </div>
+
+
+        </div>
+        <div class="col-4"></div>
+      </div>
+
+<br><br>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4" align="center"> <h4 id="resultado"> </h4> </div>
+    <div class="col-4"></div>
+  </div>
+<br><br>
+
+
+
+
+
+<script type="text/javascript">
+
+    function sumarNumeros(){
+
+        resultado.innerText="";
+        //muestra con un alert el valor escrito en la caja
+        //primero obtenemos el objeto etiqueta
+        //hay que convertirlo a número
+        var numero1=parseInt(document.getElementById("numero1").value);
+        var numero2=parseInt(document.getElementById("numero2").value);
+        //mediante propiedad value obtenemos valor
+        
+        var resultadosumar=numero1 + numero2;
+        //alert("SUMAR "+numero1+"+"+numero2+"="+resultadosumar);
+        ////acceder al contenido de texto de una etiqueta p
+        //reseteamos
+        //obj.value="";
+        resultado.innerText="SUMAR "+numero1+" + "+numero2+" = "+resultadosumar;
+       
+    
+    }
+
+
+    function restarNumeros(){
+        resultado.innerText="";
+        //muestra con un alert el valor escrito en la caja
+        //primero obtenemos el objeto etiqueta
+        //hay que convertirlo a número
+        var numero1=parseInt(document.getElementById("numero1").value);
+        var numero2=parseInt(document.getElementById("numero2").value);
+        //mediante propiedad value obtenemos valor
+        
+        var resultadorestar=numero1 - numero2;
+        //alert("SUMAR "+numero1+" x "+numero2+"="+resultadorestar);
+        ////acceder al contenido de texto de una etiqueta p
+        //reseteamos
+        //obj.value="";
+        resultado.innerText="RESTAR "+numero1+" - "+numero2+" = "+resultadorestar;
+       
+    
+    }
+
+    function multiplicarNumeros(){
+        resultado.innerText="";
+        //muestra con un alert el valor escrito en la caja
+        //primero obtenemos el objeto etiqueta
+        //hay que convertirlo a número
+        var numero1=parseInt(document.getElementById("numero1").value);
+        var numero2=parseInt(document.getElementById("numero2").value);
+        //mediante propiedad value obtenemos valor
+        
+        var resultadomultiplicar=numero1 * numero2;
+        //alert("SUMAR "+numero1+" x "+numero2+"="+resultadomultiplicar);
+        ////acceder al contenido de texto de una etiqueta p
+        //reseteamos
+        //obj.value="";
+        resultado.innerText="MULTIPLICAR "+numero1+" x "+numero2+" = "+resultadomultiplicar;
+       
+    
+    }
+
+
+    
+    function dividirNumeros(){
+        resultado.innerText="";
+        //muestra con un alert el valor escrito en la caja
+        //primero obtenemos el objeto etiqueta
+        //hay que convertirlo a número
+        var numero1=parseInt(document.getElementById("numero1").value);
+        var numero2=parseInt(document.getElementById("numero2").value);
+        //mediante propiedad value obtenemos valor
+        
+        var resultadodividir=numero1 / numero2;
+        //alert("SUMAR "+numero1+" / "+numero2+"="+resultadodividir);
+        ////acceder al contenido de texto de una etiqueta p
+        //reseteamos
+        //obj.value="";
+        resultado.innerText="DIVIDIR "+numero1+" / "+numero2+" = "+resultadodividir;
+       
+    
+    }
+
+    //poner los input text en blanco (no usada)
+    function retearCajas(){
+        document.getElementById("numero1").value="";
+        document.getElementById("numero2").value="";
+
+    }
+
+
+
+</script>
+
+</body>
+</html>
+

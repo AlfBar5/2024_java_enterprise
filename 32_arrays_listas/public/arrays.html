@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+  <script type="text/javascript">
+    var data=[5,9];
+
+    //acceso a posiciones
+    console.log(data[0]);
+
+    //modificar dato 
+    data[1]=20;
+
+    //agregar nuevos elementos
+    data.push(30);
+
+    //quitar elemento
+    //data.pop(30);
+
+    //agregar nuevo elemento en posición específica
+    data[3]=16;
+
+    //ver array
+    console.log(data);
+
+    //ver tamaño de un array
+    console.log(data.length);
+
+    ////Recorrer un array de tres formas
+    //1. recorrer un array con un foreach
+    for(let n of data){
+        console.log(n);
+    }
+
+    //2. foreach con expresiones lambda
+    data.forEach(n=>console.log(n));
+
+    //3. hay métodos en javascript que como parámetros recibe una función
+    data.forEach(function(n){
+        console.log(n);
+    });
+
+
+    //ordenar un array de menor a mayor
+    data.sort(function(a,b){
+        return a-b;
+    });
+
+
+    //ordenar un array de mayor a menor
+    data.sort(function(a,b){
+        return b-a;
+    });
+    console.log(data);
+
+    //unión de elementos separados por un -
+    console.log(data.join("-"))
+
+    //buscar find
+
+  </script>
+
+</body>
+</html>

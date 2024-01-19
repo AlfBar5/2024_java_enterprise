@@ -1,0 +1,93 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+<title>jQuery</title>
+
+<!-- Bootstrap core CSS -->
+<!-- Grid https://getbootstrap.com/docs/4.0/examples/grid/ -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+</head>
+<body>
+
+<br><br>
+
+
+<!-- tabla columnas fijas -->
+<div class="row">
+		<div class="col-4"> </div>
+        <div class="col-4">
+
+			
+			<p>Párrafo 1</p>
+			<p>Párrafo 2</p>
+			<p>Párrafo 3</p>
+			<br>
+			
+		</div>
+        <div class="col-4"></div>
+        
+      </div>
+
+<br><br>
+
+<div class="row">
+		<div class="col-4"> </div>
+        <div class="col-4">
+        	<input type="button" value="negrita" id="btnNegrita">
+		</div>
+        <div class="col-4"></div>
+        
+      </div>
+
+<br><br>
+
+<script type="text/javascript">
+
+	//función sin usar onclick en la etiqueta button
+	//asociar envento con función manejadora. Hacemos una referencia a la función poniendo solo su nombre
+	//es como si la función la pasaramos como parámetro
+	$("#btnNegrita").click(negrita)
+	
+	
+	function negrita(){
+		//colección de todas las etiquetas p de la página
+		//$("p")
+		
+		//para recorrer la colección. i (índice o posición), e es el objeto que está recorriendo (el p / párrafo)
+		/*
+		$.each($("p"),function(i,e){
+			if(i==2){ //cambio el párrafo 3 a bold
+				e.style.fontWeight="bold";
+			}
+		});
+		*/
+		
+		//OTRA FORMA. a la propia colección le puedo pasar la función (sin parámetros) 
+		// que hace lo que se escriba a cada elemento de la colección
+		//para acceder a un elemento concreto se usa el $this
+		//no se puede acceder al índice o posición de esta manera
+		$("p").each(function(){
+			$(this).css("font-weight", "bold");
+		});
+		
+		
+	 } 
+
+
+
+
+</script>
+
+
+</body>
+</html>

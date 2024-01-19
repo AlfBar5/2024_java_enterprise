@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+
+<title>N O T A S</title>
+
+<!-- Bootstrap core CSS -->
+<!-- Grid https://getbootstrap.com/docs/4.0/examples/grid/ -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<br><br>
+
+
+<!-- tabla columnas fijas -->
+<div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            
+            <div class="row">
+                <div class="col-4" align="center" style="padding: 5%;">NOTA: </div>
+                <div class="col-4"align="center" style="padding: 5%;">  <input id="nuevanota" type="text" value="" width="220px" height="40px"></div>
+                <div class="col-4" align="center" style="padding: 5%;"><input type="button" onclick="agregarNuevaNota();" value=" GUARDAR " width="140px" height="30px"> </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-4" align="center" style="padding: 5%;">NOTA MEDIA: </div>
+                <div class="col-4" align="center" style="padding: 5%;"><input type="button" onclick="notaMedia();" value=" MEDIA " width="140px" height="30px"> </div>
+                <div class="col-4" align="center" style="padding: 5%;"> <h5 id="resultadomedia"> </h5> </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4" align="center" style="padding: 5%;">Nº APROBADOS: </div>
+                <div class="col-4" align="center" style="padding: 5%;"><input type="button" onclick="numeroAprobados();" value=" APROBADOS " width="140px" height="30px"> </div>
+                <div class="col-4" align="center" style="padding: 5%;"> <h5 id="resultadoaprobados"> </h5> </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12" align="center" style="padding: 5%;"><input type="button" onclick="verNotas();" value=" VER TODAS LAS NOTAS " width="240px" height="30px"> </div>
+               
+                
+            </div>
+
+           
+
+
+        </div>
+        <div class="col-3"></div>
+      </div>
+
+<br><br>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4" align="center"> <h5 id="resultadotodas"> </h5> </div>
+    <div class="col-4"></div>
+  </div>
+<br><br>
+
+
+
+<script type="text/javascript">
+    //declaro array fuera de las funciones para que todas lo usen
+    var notas=[];
+
+    function agregarNuevaNota(){
+        resultadotodas.innerText="";
+        var nuevanota=parseInt(document.getElementById("nuevanota").value);
+        notas.push(nuevanota);
+        document.getElementById("nuevanota").value="";
+    }
+
+    function notaMedia(){
+        var total=0;
+        notas.forEach(function(n){
+            total=total+n;
+        });
+        var numeroelementos= notas.length;
+        total = total / numeroelementos;
+        resultadomedia.innerText=total;
+    }
+
+    function numeroAprobados(){
+        var totalaprobados=0;
+        notas.forEach(function(n){
+            if(n>4){
+                totalaprobados=totalaprobados+1;
+            }
+        });
+        resultadoaprobados.innerText=totalaprobados;
+    }
+
+    function verNotas(){
+        //unión de elementos separados por un -
+        resultadotodas.innerText=notas.join("-");
+    }
+
+</script>
+
+</body>
+</html>

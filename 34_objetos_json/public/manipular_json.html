@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+
+<title> J S O N</title>
+
+<!-- Bootstrap core CSS -->
+<!-- Grid https://getbootstrap.com/docs/4.0/examples/grid/ -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<br><br>
+
+
+<script type="text/javascript">
+   //declaramos objeto json
+   var curso={"nombre":"valor","duracion":100,"precio":123.5};
+   //cambio valor
+   curso.duracion=80;
+   alert(curso.nombre);
+
+   //manera alternativa de crear objetos json
+   var otroCurso=new Object();
+   otroCurso.nombre="Python";
+   otroCurso.duracion=60;
+   otroCurso.precio=80; 
+   //convertir JSON a cadena de texto con JSON.stringify
+   console.log(JSON.stringify(otroCurso)) 
+   //convertir cadena de texto a JSON. La cadena de texto está entre comillas simples
+   var emp='{"departamento":"ventas","salario":2000}'
+   emp=JSON.parse(emp);
+   console.log(emp.departamento);
+
+</script>
+
+
+
+</body>
+</html>

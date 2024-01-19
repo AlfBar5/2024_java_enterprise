@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+
+<title>Buscador Cursos</title>
+
+<!-- Bootstrap core CSS -->
+<!-- Grid https://getbootstrap.com/docs/4.0/examples/grid/ -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+<style>
+     .initialHide {
+          display: none;
+        }
+</style>
+
+</head>
+
+
+
+<body id="pagina" onload="ocultar();">
+
+<br><br>
+
+
+<!-- divs dinámicos vertical para móviles -->
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><h4>BUSCADOR DE CURSOS</h4></div>
+        <div class="col-md-4"></div>
+</div>
+
+<br><br>
+
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><input id="checkprecio" name="checkbuscar" type="radio" value="precio" />  POR PRECIO</div>
+        <div class="col-md-4"></div>
+</div>
+
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><input id="checkduracion" name="checkbuscar" type="radio" value="duracion" />  POR DURACIÓN</div>
+        <div class="col-md-4"></div>
+</div>
+
+<br><br>
+
+
+
+<div class="row" id="formprecio">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+                PRECIO MÁXIMO:  <input type="text" id="precioMax" class="form-control">
+                <br>
+                <input class="btn btn-info" type="submit" value="VER DATOS" id="btnMostrarPrecio">
+        </div>
+        <div class="col-md-4"></div>
+</div>
+
+
+
+<div class="row" id="formduracion">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">DURACIÓN MÍNIMA: <br><input type="text" id="duracionMin" class="form-control"></div>
+        <div class="col-md-3">DURACIÓN MÁXIMA: <br><input type="text" id="duracionMax" class="form-control"></div>
+        <div class="col-md-3"><br><input class="btn btn-info" type="submit" value="VER DATOS" id="btnMostrarDuracion"></div>
+        <div class="col-md-1"></div>
+</div>
+
+<hr>
+
+
+<div class="row" >
+        <div class="col-md-3"></div>
+        <div id="tablaDatos" class="col-md-6 ">   </div>
+        <div class="col-md-3"></div>
+        
+</div>
+
+
+
+<script type="text/javascript">
+
+//ocultar secciones desde el load
+function ocultar(){
+	$("#formprecio").hide();
+	$("#formduracion").hide();
+			
+};
+
+//ocultar o visualizar etiquetas div si checket
+$("#checkprecio").click(function(){
+        $("#formduracion").hide();
+        $("#formprecio").show();
+        $("#tablaDatos").hide();
+
+});
+
+$("#checkduracion").click(function(){
+        
+        $("#formprecio").hide();
+        $("#formduracion").show();
+        $("#tablaDatos").hide();
+
+});
+
+
+//ajax mostrar tabla por precio
+$("#btnMostrarPrecio").click(function(){
+	var url="FrontController";
+	var params={"operation":"doBuscarPorPrecio","preciomax":$("#precioMax").val()};
+	gestionarPeticion(url,params);
+});
+
+//ajax mostrar tabla por duracion
+$("#btnMostrarDuracion").click(function(){
+	var url="FrontController";
+	var params={"operation":"doBuscarPorDuracion","duracionMin":$("#duracionMin").val(),"duracionMax":$("#duracionMax").val()};
+	gestionarPeticion(url,params);
+});
+
+function gestionarPeticion(url,params){
+	$("#tablaDatos").show();
+	$.get(url,params,function(data){
+	var tabla="<table class='table'><tr><th>Nombre</th><th>Duración</th><th>Precio</th></tr>";
+	$.each(data,function(i,p){
+		tabla+="<tr><td>"+p.nombre+"</td><td>"+p.duracion+"</td><td>"+p.precio+"</td></tr>";
+	});
+	tabla+="</table>";
+	$("#tablaDatos").html(tabla);
+	});
+}
+</script>
+
+</body>
+</html>

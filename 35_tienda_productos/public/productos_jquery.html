@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- los siguiente metas son para no- cache -->
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+
+<title> J S O N - J Q U E R Y</title>
+
+<!-- Bootstrap core CSS -->
+<!-- Grid https://getbootstrap.com/docs/4.0/examples/grid/ -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <!-- JQuery -->   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<br><br>
+
+
+<!-- tabla columnas fijas -->
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6" >
+        
+        <div class="row">
+            <div class="col-3" align="center" style="padding: 5%;">NOMBRE: </div>
+            <div class="col-3" align="center" style="padding: 5%;">  <input id="nombretxt" type="text" value="" width="220px" height="40px"></div>
+            <div class="col-3" align="center" style="padding: 5%;">CATEGORÍA: </div>
+            <div class="col-3" align="center" style="padding: 5%;">  <input id="categoriatxt" type="text" value="" width="220px" height="40px"></div>
+           
+        </div>
+
+        
+        <div class="row">
+            <div class="col-3" align="center" style="padding: 5%;">PRECIO: </div>
+            <div class="col-3" align="center" style="padding: 5%;"> <input id="preciotxt" type="text" value="" width="220px" height="40px"></div>
+            <div class="col-3" align="center" style="padding: 5%;"><button class="button" id="btnGuardar"  width="140px" height="30px">GUARDAR</button> </div>
+            <div class="col-3" align="center" style="padding: 5%;"> </div>
+            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4" align="center" style="padding: 5%;">BUSCAR POR CATEGORÍA: </div>
+            <div class="col-4" align="center" style="padding: 5%;"> <input id="buscarcat" type="text" value="" width="220px" height="40px"></div>
+            <div class="col-4" align="center" style="padding: 5%;"><button class="button" id="btnBuscar" width="140px" height="30px">BUSCAR</button> </div>
+                  
+        </div>
+
+       
+
+        <div class="row">
+            <div class="col-1" align="center" style="padding: 1%;"></div>
+            <div class="col-10"align="center" style="padding: 1%;">
+            
+                <div id="tablaresultados" class="table"></div>
+
+            </div>
+            <div class="col-1" align="center" style="padding: 1%;"> </div>
+                  
+        </div>
+
+    </div>
+    <div class="col-3"></div>
+  </div>
+
+
+
+
+
+<script type="text/javascript">
+    //declaramos objeto json
+    //manera alternativa de crear objetos json
+   
+
+    var productos=[];
+
+    $("#btnGuardar").click(agregarProducto);
+	$("#btnBuscar").click(buscarPorCategoria);
+
+    function agregarProducto(){
+               
+        var producto=new Object();
+
+        producto.nombre=$("#nombretxt").val();
+        producto.categoria=$("#categoriatxt").val();
+        producto.precio=parseInt($("#preciotxt").val());
+      
+        //agregar nuevos elementos al array productos
+        productos.push(producto);
+
+        /*
+        //para ver en consola lo que vamos metiendo
+        productos.forEach(function(n){
+            console.log(n);
+        });
+        */
+       return limpiarCajas();
+    }
+
+    function buscarPorCategoria(){
+        var cat=document.getElementById("buscarcat").value;
+
+        var tabla="<table ><tr><th>NOMBRE</th><th>CATEGORÍA</th><th>PRECIO</th></tr>";
+
+        $.each(productos,function(i,p){
+            if(p.categoria==cat){
+                tabla+="<tr><td style='width:33%;'>"+
+					p.nombre+"</td><td style='width:33%;'>"+
+					p.categoria+"</td><td style='width:33%;'>"+
+					p.precio+"</td></tr>";
+            }
+        });
+
+        tabla+="</table>";        
+        $("#tablaresultados").html(tabla);
+    }
+
+    
+
+    function limpiarCajas(){
+        $("input").each(function(){
+			$(this).val("");
+		});
+    }
+
+    
+
+    
+</script>
+
+</body>
+</html>

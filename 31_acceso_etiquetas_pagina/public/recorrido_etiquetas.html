@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p>Párrafo 1</p>
+<p>Párrafo 2</p>
+<p>Párrafo 3</p>
+<br>
+
+<input type="button" value="negrita" onclick="negrita()">
+
+<script type="text/javascript">
+
+    function negrita(){
+        //se crea una lista de objetos p
+        var parrafos = document.getElementsByTagName("p");
+        //recorro la lista
+        for(let p of parrafos){
+            ////dos formas:
+            //p.innerHTML="<b>"+p.innerText+"</b>";
+            p.style.fontWeight="bold";
+        } 
+    }
+
+</script>
+
+
+</body>
+</html>
